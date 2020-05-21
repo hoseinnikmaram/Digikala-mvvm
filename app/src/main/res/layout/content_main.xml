@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:wheel="http://schemas.android.com/apk/res-auto"
+            android:layoutDirection="rtl"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".view.MainActivity"
+            >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutDirection="rtl"
+                android:scrollbars="none"
+                android:background="@color/background_main">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="220dp">
+                    </androidx.viewpager.widget.ViewPager>
+
+                    <LinearLayout
+                        android:id="@+id/linerlayout_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="203dp">
+                    </LinearLayout>
+
+                    <com.pnikosis.materialishprogress.ProgressWheel
+                        android:id="@+id/progress_wheel"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="60dp"
+                        android:layout_centerHorizontal="true"
+                        wheel:matProg_barColor="@color/colorPrimary"
+                        wheel:matProg_progressIndeterminate="true"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_category_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/viewpager">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <LinearLayout
+                        android:id="@+id/linertimer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@+id/recyclerview_category_home"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:layout_weight=".20"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="15dp"
+                            android:src="@mipmap/image_sh"/>
+                        <TextView
+                            android:id="@+id/Tv_sec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="@dimen/timertextsie"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:layout_marginRight="10dp"
+                            android:textColor="@color/white"
+                            tools:text="12"
+                            android:background="@drawable/shape_timer"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="@dimen/timertextsie"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:textStyle="bold"
+                            android:text=" : "/>
+
+                        <TextView
+                            android:id="@+id/Tv_min"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/timertextsie"
+                            android:gravity="center"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/shape_timer"
+                            tools:text="12"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/timertextsie"
+                            android:gravity="center"
+                            android:paddingLeft="3dp"
+                            android:paddingRight="3dp"
+                            android:textStyle="bold"
+                            android:text=" : "/>
+
+                        <TextView
+                            android:id="@+id/Tv_hour"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/timertextsie"
+                            android:gravity="center"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/shape_timer"
+                            android:layout_marginLeft="10dp"
+                            tools:text="12"/>
+
+
+                    </LinearLayout>
+
+                    <com.example.digikalamvvm.view.custom.Custom_product_offer
+                        android:id="@+id/Custom_product_offer"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linertimer">
+                    </com.example.digikalamvvm.view.custom.Custom_product_offer>
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_span_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linertimer">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <com.example.digikalamvvm.view.custom.Custom_product
+                        android:id="@+id/Custom_proruct_pourforsh"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/recyclerview_span_count">
+                    </com.example.digikalamvvm.view.custom.Custom_product>
+
+                    <com.example.digikalamvvm.view.custom.Custom_product
+                        android:id="@+id/Custom_proruct_new"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Custom_proruct_pourforsh">
+                    </com.example.digikalamvvm.view.custom.Custom_product>
+
+                </RelativeLayout>
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+    </layout>

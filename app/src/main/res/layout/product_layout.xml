@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View">
+
+        </import>
+        <variable
+            name="data"
+            type="String" />
+
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="rtl">
+
+    <TextView
+        android:id="@+id/Tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@{data}"
+        android:padding="8dp"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/Tv_product_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/proruct_color_blue_all"
+        android:text="لیست کامل"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Tv_product_all">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>
+</layout>

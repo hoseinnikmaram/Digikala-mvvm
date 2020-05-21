@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    tools:context=".Splash.Internet_Error_Connecting"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:id="@+id/Im_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/internetcheck"/>
+
+    <TextView
+        android:id="@+id/Tv_connnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/Im_connect"
+        android:text="خطا در دسترسی به اینترنت !" />
+
+    <Button
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Tv_connnect"
+        android:textAlignment="center"
+        android:text="تلاش مجدد"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/red"
+        />
+
+</RelativeLayout>

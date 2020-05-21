@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="data"
+            type="String" />
+    </data>
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Image_span_count"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:image="@{data}"
+        android:layout_margin="3dp"
+        android:scaleType="center">
+    </ImageView>
+</layout>

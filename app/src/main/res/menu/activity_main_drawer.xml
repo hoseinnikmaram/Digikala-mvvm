@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_home_white_24dp"
+            android:title="خانه" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="لیست دسته بندی محصولات" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group2">
+        <item
+         android:id="@+id/nav_slideshow"
+          android:icon="@drawable/ic_menu_slideshow"
+          android:title="سبد خرید" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/group3">
+
+    <item
+         android:id="@+id/nav_manage"
+         android:icon="@drawable/ic_star_rate_white_18dp"
+         android:title="پیشنهاد ویژه دیجی کالا" />
+    <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/ic_star_rate_white_18dp"
+        android:title="پرفروش ترین ها" />
+    <item
+        android:id="@+id/nav_send"
+        android:icon="@drawable/ic_star_rate_white_18dp"
+        android:title="پربازدیدترین ها" />
+
+        <item
+         android:id="@+id/nav_new"
+         android:icon="@drawable/ic_star_rate_white_18dp"
+         android:title="جدیدترین ها" />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group4">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="تنظیمات" />
+        <item
+            android:id="@+id/nav_qustions"
+            android:icon="@drawable/ic_menu_share"
+            android:title="سوالات متداول" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_send"
+            android:title="درباره ما" />
+
+    </group>
+
+</menu>

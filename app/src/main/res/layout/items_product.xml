@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View">
+
+        </import>
+
+        <variable
+            name="data"
+            type="com.example.digikalamvvm.model.ProductPourforshModel" />
+
+    </data>
+
+
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_margin="5dp"
+    app:cardCornerRadius="1dp"
+    android:foreground="?attr/selectableItemBackgroundBorderless">
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="210dp">
+
+        <ImageView
+            android:id="@+id/Image_post"
+            android:layout_width="150dp"
+            android:layout_height="130dp"
+            android:padding="15dp"
+            app:image="@{data.pic}"/>
+
+        <TextView
+            android:id="@+id/Tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Image_post"
+            android:textAlignment="center"
+            tools:text="@{data.name}"/>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:background="#ecebeb"
+            android:layout_below="@+id/Tv_title"/>
+        <TextView
+            android:id="@+id/Tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:textColor="#069c27"
+            android:layout_marginTop="4dp"
+            tools:text="@{data.priceSale}"
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+</layout>
