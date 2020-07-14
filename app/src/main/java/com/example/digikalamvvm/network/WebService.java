@@ -6,7 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WebService {
 
-    String baseurl="http://192.168.1.3/digikala/api/";
+  //  String baseurl="http://192.168.43.160/digikala/api/";
+  String baseurl="http://mhnikmaram.ir/api/";
+
     Api api;
     public WebService(){
         Retrofit retrofit=new Retrofit.Builder()

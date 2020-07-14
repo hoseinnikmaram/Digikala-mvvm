@@ -39,17 +39,17 @@ public class Adapter_product extends RecyclerView.Adapter<Adapter_product.viewho
 
     @Override
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
-        ProductPourforshModel datamodel_cagegory_home=datamodel_cagegory_homes.get(position);
+        ProductPourforshModel productPourforshModel=datamodel_cagegory_homes.get(position);
         // Glide.with(context).load(datamodel_cagegory_home.getPic().replace("localhost","192.168.43.54")).into(holder.Image_post);
         // holder.Tv_price.setText(Desimal_format_Interger.GetformatInteger(datamodel_cagegory_home.getPriceSale())+" تومان ");
         // holder.Tv_title.setText(datamodel_cagegory_home.getName());
-        holder.binding.setData(datamodel_cagegory_home);
+        holder.binding.setData(productPourforshModel);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, More_Product.class);
-                intent.putExtra("idproduct", datamodel_cagegory_home.getIdproduct());
+                intent.putExtra("idproduct", productPourforshModel.getIdproduct());
                 intent.putExtra("offer", "0");
                 context.startActivity(intent);
             }

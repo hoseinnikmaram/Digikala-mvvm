@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "372327594498",
+    "firebase_url": "https://digikala-mvvm.firebaseio.com",
+    "project_id": "digikala-mvvm",
+    "storage_bucket": "digikala-mvvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:372327594498:android:2040b68ca0e6cc3174c51b",
+        "android_client_info": {
+          "package_name": "com.example.digikalamvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "372327594498-fmf341oo6o1vefuft7937iml8co7ugt7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.digikalamvvm",
+            "certificate_hash": "5e205aa5f8e7f91645351dd3ecf0f240cd758849"
+          }
+        },
+        {
+          "client_id": "372327594498-tqbvd46jpu8sofdtclecn9cfv20vj2f6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB0I0_DiJOydRIdxZHVRuNnQzdzs_BMlg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "372327594498-tqbvd46jpu8sofdtclecn9cfv20vj2f6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

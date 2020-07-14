@@ -14,6 +14,8 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.databinding.DataBindingUtil;
+
+import com.example.digikalamvvm.databinding.ActivityMoreProductBinding;
 import com.example.digikalamvvm.databinding.SliderLatyoutBinding;
 import com.example.digikalamvvm.databinding.ActivityMainBinding;
 public class Slider_pager_adapter extends PagerAdapter {
@@ -22,16 +24,14 @@ public class Slider_pager_adapter extends PagerAdapter {
     List<String> strings;
     ImageView Image_slider;
     int[] idview;
-    Activity activity;
     SliderLatyoutBinding sliderLatyoutBinding;
-    ActivityMainBinding activityMainBinding;
 
     private static final String TAG = "Slider_pageradapter";
-    public Slider_pager_adapter(ActivityMainBinding binding,Context context, List<String> strings,int[] idview){
-        this.activityMainBinding=binding;
+
+
+    public Slider_pager_adapter(Context context, List<String> strings){
         this.context=context;
         this.strings=strings;
-        this.idview=idview;
 
 
     }
@@ -52,18 +52,6 @@ public class Slider_pager_adapter extends PagerAdapter {
     //    Image_slider=view.findViewById(R.id.Image_slider);
   //    Glide.with(context).load(strings.get(position).replace("localhost","192.168.43.54")).apply(new RequestOptions().placeholder(R.drawable.logo_sp).error(R.drawable.logo_sp)).into(Image_slider);
         sliderLatyoutBinding.setData(strings.get(position));
-
-        for (int i = 0; i < idview.length; i++) {
-            View viewslider = activityMainBinding.contentMain.linerlayoutSlider.findViewById(idview[i]);
-            if (viewslider != null) {
-                if (i == position) {
-                    viewslider.setBackgroundResource(R.drawable.shape_slider_active);
-                } else {
-                    viewslider.setBackgroundResource(R.drawable.shape_slider_noactive);
-                }
-            }
-
-        }
 
     //    container.addView(view);
       //  return view;

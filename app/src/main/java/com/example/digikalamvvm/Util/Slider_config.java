@@ -1,5 +1,6 @@
 package com.example.digikalamvvm.Util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.view.View;
@@ -11,7 +12,9 @@ import com.example.digikalamvvm.R;
 import com.pnikosis.materialishprogress.ProgressWheel;
 
 import androidx.viewpager.widget.ViewPager;
- import com.example.digikalamvvm.databinding.ActivityMainBinding;
+import me.relex.circleindicator.CircleIndicator;
+
+import com.example.digikalamvvm.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,20 +23,19 @@ public class Slider_config {
     Context context;
     ProgressWheel progress_wheel;
     ViewPager viewPager;
-    ActivityMainBinding binding;
+    Activity activity;
     int idview[];
     int countslider;
     LinearLayout linerlayout_slider;
     Slider_pager_adapter slider_pageradapter;
     HomeModel homeModel;
 
-    public Slider_config(ActivityMainBinding binding, Context context, ViewPager viewpager, LinearLayout linerlayout_slider, HomeModel homeModel) {
+    public  Slider_config(Activity activity, Context context, ViewPager viewpager, HomeModel Model) {
 
         this.context = context;
         this.viewPager = viewpager;
-        this.binding = binding;
-        this.linerlayout_slider = linerlayout_slider;
-        this.homeModel = homeModel;
+        this.activity = activity;
+        this.homeModel = Model;
         Setup_slider();
     }
 
@@ -46,30 +48,18 @@ public class Slider_config {
             SliderModel sliderModel = ListSlider.get(i);
             stringsarray.add(sliderModel.getPic());
         }
-        idview = new int[ListSlider.size()];
-        slider_pageradapter = new Slider_pager_adapter(binding, context, stringsarray, idview);
+        slider_pageradapter = new Slider_pager_adapter( context, stringsarray);
         viewPager.setAdapter(slider_pageradapter);
+        CircleIndicator indicator = (CircleIndicator) activity.findViewById(R.id.indicator);
+        indicator.setViewPager(viewPager);
         Getslider_auto_Changeitems(ListSlider.size());
-        Sliderindactor(ListSlider.size());
 
 
     }
 
-    void Sliderindactor(final int len) {
 
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Convert_px.convertpx(30, context), Convert_px.convertpx(30, context));
-        layoutParams.setMargins(0, 0, 13, 0);
-        for (int i = 0; i < len; i++) {
-            int id = View.generateViewId();
-            idview[i] = id;
-            View view = new View(binding.contentMain.getRoot().getContext());
-            view.setBackgroundResource(R.drawable.shape_slider_noactive);
-            view.setLayoutParams(layoutParams);
-            view.setId(id);
-            linerlayout_slider.addView(view);
-        }
 
-    }
+
 
     void Getslider_auto_Changeitems(final int len) {
         final Handler handler = new Handler();
@@ -83,20 +73,6 @@ public class Slider_config {
                             @Override
                             public void run() {
                                 viewPager.setCurrentItem(countslider);
-
-/*                                for (int i = 0; i < idview.length; i++) {
-                                    //  View view=activity.findViewById(idview[i]);
-
-                                    View view = binding.contentMain.linerlayoutSlider.findViewById(idview[i]);
-
-                                    if (i == countslider) {
-                                        view.setBackgroundResource(R.drawable.shape_slider_active);
-                                    } else {
-                                        view.setBackgroundResource(R.drawable.shape_slider_noactive);
-                                    }
-                                }
-
- */
                                 countslider++;
                             }
                         });

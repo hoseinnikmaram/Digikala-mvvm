@@ -8,14 +8,18 @@ import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
+import me.relex.circleindicator.CircleIndicator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -28,8 +32,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.digikalamvvm.PushNotification.ActivityShowNotification;
 import com.example.digikalamvvm.model.CatModel;
 import com.example.digikalamvvm.model.HomeModel;
+import com.example.digikalamvvm.model.NotficationModel;
 import com.example.digikalamvvm.model.TimerModel;
 import com.example.digikalamvvm.R;
 import com.example.digikalamvvm.Util.Adapter.Adapter_Recyclerview_category_home;
@@ -55,7 +61,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Adapter_Recyclerview_category_home adapter_recyclerview_category_home;
     ProgressWheel progress_wheel;
     ViewPager viewpager;
-    LinearLayout linerlayout_slider;
     Toolbar toolbar;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -69,7 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     MutableLiveData<Boolean> mutableLiveData_status_home;
     Custom_product custom_product,Custom_proruct_new;
     Custom_product_offer custom_product_offer;
-
+    NotficationModel notficationModel =new NotficationModel();
+;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +98,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Getlist_Custom_proruct_offer();
          Getlist_Custom_proruct_new();
 
+        if(getIntent().hasExtra("type")) {
+
+            if(getIntent().getStringExtra("type").equals("activity")){
+
+                Intent intent=new Intent(getApplicationContext(),ActivityShowNotification.class);
+
+
+                intent.putExtra("title",getIntent().getStringExtra("title"));
+                intent.putExtra("image",getIntent().getStringExtra("image"));
+                intent.putExtra("content",getIntent().getStringExtra("content"));
+                intent.putExtra("date",getIntent().getStringExtra("date"));
+                startActivity(intent);
+            }
+
+            if(getIntent().getStringExtra("type").equals("url")){
+
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(getIntent().getStringExtra("destination")));
+
+                startActivity(intent);
+            }
+
+        }
+
     }
+
+
+
     void Getlist_Custom_proruct_new()
     {
 
@@ -255,7 +287,7 @@ Log.e("aa",homeModel.getProductNewModel().get(0).getName());
     }
 
     private void Set_category() {
-        Viewmodel_Cat viewmodel_cat = ViewModelProviders.of(this).get(Viewmodel_Cat.class);
+        Viewmodel_Cat viewmodel_cat = new ViewModelProvider(this).get(Viewmodel_Cat.class);
         final MutableLiveData<CatModel> mutableLiveData_cat = viewmodel_cat.Cat_Mutable();
         MutableLiveData<Boolean> mutableLiveData_status_cat = viewmodel_cat.liveData_status;
 
@@ -308,7 +340,7 @@ Log.e("aa",homeModel.getProductNewModel().get(0).getName());
 
     private void Set_Slider() {
 
-        Viewmodel_Home viewmodel_home = ViewModelProviders.of(this).get(Viewmodel_Home.class);
+        Viewmodel_Home viewmodel_home = new ViewModelProvider(this).get(Viewmodel_Home.class);
          mutableLiveData_home = viewmodel_home.List_Slider_Mutable();
          mutableLiveData_status_home = viewmodel_home.liveData_status;
 
@@ -324,7 +356,7 @@ Log.e("aa",homeModel.getProductNewModel().get(0).getName());
                     public void onChanged(HomeModel homeModel) {
                         progress_wheel.setVisibility(View.GONE);
                         result_homeModel=homeModel;
-                        slider_config = new Slider_config(binding, MainActivity.this, viewpager, linerlayout_slider, homeModel);
+                        slider_config = new Slider_config(MainActivity.this, MainActivity.this, viewpager, homeModel);
                         //Set_Spancount();
 
                     }
@@ -334,10 +366,38 @@ Log.e("aa",homeModel.getProductNewModel().get(0).getName());
 
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+
+        if(intent.hasExtra("type")) {
+
+            if(intent.getStringExtra("type").equals("activity")) {
+
+                Intent intent1 = new Intent(getApplicationContext(), ActivityShowNotification.class);
+
+
+                intent1.putExtra("title", intent.getStringExtra("title"));
+                intent1.putExtra("image", intent.getStringExtra("image"));
+                intent1.putExtra("content", intent.getStringExtra("content"));
+                intent1.putExtra("date", intent.getStringExtra("date"));
+                startActivity(intent1);
+
+            }
+
+            if(intent.getStringExtra("type").equals("url")){
+
+                Intent intent1=new Intent(Intent.ACTION_VIEW, Uri.parse(intent.getStringExtra("destination")));
+
+                startActivity(intent1);
+            }
+        }
+
+    }
+
     public void Cast() {
         progress_wheel = binding.contentMain.progressWheel;
         viewpager = binding.contentMain.viewpager;
-        linerlayout_slider = binding.contentMain.linerlayoutSlider;
         toolbar = binding.toolbar;
         drawer = binding.drawerLayout;
         navigationView = binding.navView;

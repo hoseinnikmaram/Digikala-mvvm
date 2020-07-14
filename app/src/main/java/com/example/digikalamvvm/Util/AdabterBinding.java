@@ -12,7 +12,7 @@ public class AdabterBinding {
 
     @BindingAdapter("image")
     public static void Image(ImageView view, String url){
-        Glide.with(view).load(url.replace("localhost","192.168.1.3")).apply(new RequestOptions().placeholder(R.drawable.logo_sp).error(R.drawable.logo_sp)).into(view);
+        Glide.with(view).load(url.replace("localhost","192.168.43.160")).apply(new RequestOptions().placeholder(R.drawable.logo_sp).error(R.drawable.logo_sp)).into(view);
 
 
     }

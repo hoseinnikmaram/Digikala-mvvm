@@ -1,11 +1,14 @@
 package com.example.digikalamvvm.network;
 
 import com.example.digikalamvvm.model.CatModel;
+import com.example.digikalamvvm.model.Detail_productModel;
 import com.example.digikalamvvm.model.HomeModel;
 import com.example.digikalamvvm.model.TimerModel;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface  Api {
 
@@ -17,6 +20,9 @@ public interface  Api {
 
     @GET("timer.php")
     Single<TimerModel> Timer();
+
+    @GET("product.php")
+    Single<Detail_productModel> GetProductById(@Query("idproduct") String ProductId);
 
   /*  @GET("index.php")
     Single<List<Datamodel>> Listdatamodel();

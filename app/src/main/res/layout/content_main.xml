@@ -30,14 +30,11 @@
                         android:layout_height="220dp">
                     </androidx.viewpager.widget.ViewPager>
 
-                    <LinearLayout
-                        android:id="@+id/linerlayout_slider"
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/indicator"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_marginTop="203dp">
-                    </LinearLayout>
+                        android:layout_height="48dp"
+                        android:layout_marginTop="175dp"/>
 
                     <com.pnikosis.materialishprogress.ProgressWheel
                         android:id="@+id/progress_wheel"
